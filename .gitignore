@@ -1,3 +1,10 @@
+# Environment
+collect_env_details.py
+
+# Output
+data/
+lightning_logs/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
