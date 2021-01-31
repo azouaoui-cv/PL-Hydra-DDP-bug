@@ -102,16 +102,10 @@ class BoringModel(LightningModule):
         loss = self.loss(batch, output)
         return {"x": loss}
 
-    def validation_epoch_end(self, outputs) -> None:
-        torch.stack([x["x"] for x in outputs]).mean()
-
     def test_step(self, batch, batch_idx):
         output = self.layer(batch)
         loss = self.loss(batch, output)
         return {"y": loss}
-
-    def test_epoch_end(self, outputs) -> None:
-        torch.stack([x["y"] for x in outputs]).mean()
 
     def configure_optimizers(self):
         optimizer = torch.optim.SGD(self.layer.parameters(), lr=0.1)
@@ -128,6 +122,7 @@ class BoringModel(LightningModule):
 
 @hydra.main(config_path="", config_name="config")
 def test_run(cfg):
+    print(cfg)
     class TestModel(BoringModel):
         def on_train_epoch_start(self) -> None:
             print("override any method to prove your bug")

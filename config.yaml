@@ -6,10 +6,7 @@ hydra:
     subdir: ${hydra.job.num}
 
 checkpoint:
-  monitor: "val_acc"
+  monitor: "x"
   mode: "max"
-  dirpath: "ckpts"
-  filename: "{epoch:03d}-{val_acc:.3f}"
-  save_last: True
   verbose: True
   save_top_k: 1
