@@ -1,4 +1,4 @@
 omegaconf==2.0.4
 hydra_core==1.0.3
-git+https://github.com/PytorchLightning/pytorch-lightning.git
+git+https://github.com/PytorchLightning/pytorch-lightning.git@ca68cac57ad8eefc9b477ee126eb42a483f27a39
 torch==1.7.0
